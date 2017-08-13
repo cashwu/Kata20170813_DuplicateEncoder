@@ -13,6 +13,12 @@ namespace Kata20170813_DuplicateEncoder
             DuplicateEncoderShouldBe("(", "a");
         }
 
+        [TestMethod]
+        public void input_ab()
+        {
+            DuplicateEncoderShouldBe("((", "ab");
+        }
+
         private static void DuplicateEncoderShouldBe(string expected, string word)
         {
             var kata = new Kata();
@@ -25,7 +31,7 @@ namespace Kata20170813_DuplicateEncoder
     {
         public string DuplicateEncode(string word)
         {
-            return "(";
+            return string.Concat(word.Select(a => "("));
         }
     }
 }
